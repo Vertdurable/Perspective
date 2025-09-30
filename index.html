@@ -6,7 +6,7 @@
   <title>Calcul tantièmes</title>
   <link rel="stylesheet" href="Style.css">
 </head>
-<body>
+<body oninput="calculer()">
   <div class="container">
     <h1>Calcul des tantièmes</h1>
     
@@ -19,17 +19,10 @@
     </div>
 
     <div class="totaux">
-      <label for="coutTotal">Coût total TTC :</label>
-      <input type="number" id="coutTotal" min="0" value="0">
-
-      <label for="aidesTotal">Total aides :</label>
-      <input type="number" id="aidesTotal" min="0" value="0">
-
-      <label for="resteTotal">Reste à charge total :</label>
-      <input type="number" id="resteTotal" min="0" value="0">
+      <p><strong>Coût total TTC :</strong> <span id="coutTotal">1373872</span> €</p>
+      <p><strong>Total aides :</strong> <span id="aidesTotal">891146.86</span> €</p>
+      <p><strong>Reste à charge total :</strong> <span id="resteTotal">482725.14</span> €</p>
     </div>
-
-    <button onclick="calculer()">Calculer</button>
 
     <div class="resultats">
       <h2>Résultats par logement</h2>
@@ -42,4 +35,3 @@
   <script src="Script.js"></script>
 </body>
 </html>
-
