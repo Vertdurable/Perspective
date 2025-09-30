@@ -2,9 +2,9 @@ function calculer() {
   const logement = parseFloat(document.getElementById("logement").value) || 0;
   const tantiemeTotal = parseFloat(document.getElementById("tantiemeTotal").value) || 1;
 
-  const coutTotal = parseFloat(document.getElementById("coutTotal").value) || 0;
-  const aidesTotal = parseFloat(document.getElementById("aidesTotal").value) || 0;
-  const resteTotal = parseFloat(document.getElementById("resteTotal").value) || 0;
+  const coutTotal = 1373872;
+  const aidesTotal = 891146.86;
+  const resteTotal = 482725.14;
 
   const ratio = logement / tantiemeTotal;
 
@@ -16,3 +16,6 @@ function calculer() {
   document.getElementById("resultAides").textContent = aides.toFixed(2);
   document.getElementById("resultReste").textContent = reste.toFixed(2);
 }
+
+// ⚡ lancer une première fois au chargement
+window.onload = calculer;
