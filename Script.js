@@ -1,3 +1,9 @@
+// Formatage français des nombres
+const formatFr = new Intl.NumberFormat("fr-FR", {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
+});
+
 function calculer() {
   const logement = parseFloat(document.getElementById("logement").value) || 0;
   const tantiemeTotal = parseFloat(document.getElementById("tantiemeTotal").value) || 1;
@@ -14,12 +20,14 @@ function calculer() {
   const aides = aidesTotal * ratio;
   const reste = resteTotal * ratio;
 
-  document.getElementById("resultCout").textContent = cout.toFixed(2);
-  document.getElementById("resultAides").textContent = aides.toFixed(2);
-  document.getElementById("resultReste").textContent = reste.toFixed(2);
+  // Résultats
+  document.getElementById("resultCout").textContent = formatFr.format(cout);
+  document.getElementById("resultAides").textContent = formatFr.format(aides);
+  document.getElementById("resultReste").textContent = formatFr.format(reste);
 }
 
 // ⚡ lancer une première fois au chargement
 window.onload = calculer;
+
 
 
