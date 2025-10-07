@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estimation QP hors honoraires annexes</title>
+  <link rel="stylesheet" href="Style.css">
+  <script src="Script.js?v=dev" defer></script>
+</head>
+<body oninput="calculer()">
+  <div class="container">
+    <h1>Estimation QP hors honoraires annexe</h1>
+    
+    <div class="inputs">
+      <label for="logement">Surface du logement :</label>
+      <input type="number" id="logement" min="0" value="75">
+
+      <label for="surfaceTotale">Surface totale :</label>
+      <input type="number" id="surfaceTotale" min="1" value="19100">
+    </div>
+
+    <div class="totaux">
+      <p><strong>Coût total TTC :</strong> <span id="coutTotal">15867200</span> €</p>
+      <p><strong>Total aides :</strong> <span id="aidesTotal">2851000</span> €</p>
+      <p><strong>Reste à charge total :</strong> <span id="resteTotal">13016200</span> €</p>
+      <p><strong>Economie d'énergie total :</strong> <span id="economieEnergieTotal">200000</span> €</p>
+      <p><strong>Amélioration de la valeur verte total :</strong> <span id="ameliorationValeurVerteTotal">2</span> %</p>
+    </div>
+
+    <div class="resultats">
+      <h2>Résultats par logement</h2>
+      <p>Coût TTC : <span id="resultCout">0</span> €</p>
+      <p>Aides : <span id="resultAides">0</span> €</p>
+      <p>Reste à charge : <span id="resultReste">0</span> €</p>
+      <p>Mensualité : <span id="resultMensualite">0</span> €/mois</p>
+      <p>Economie d'énergie : <span id="resultEconomieEnergie">0</span> €</p>
+      <p>Effort mensuel : <span id="effortMensuel">0</span> €</p>
+      <p>Valeur verte : <span id="resultValeurVerte">0</span> €</p>
+    </div>
+  </div>
+  
+  <script src="Script.js"></script>
+</body>
+</html>
+
+
+
