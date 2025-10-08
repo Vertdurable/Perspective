@@ -60,12 +60,33 @@ function changerScenario(scenario) {
   document.querySelectorAll(".tab").forEach((tab) => {
     tab.classList.remove("active");
   });
-  document
-    .querySelector(`[data-scenario="${scenario}"]`)
-    .classList.add("active");
+  const activeTab = document.querySelector(`[data-scenario="${scenario}"]`);
+  activeTab.classList.add("active");
+
+  // Centrer le tab actif
+  centrerTab(activeTab);
 
   // Mettre à jour les valeurs et recalculer
   mettreAJourScenario();
+}
+
+// Centrer le tab actif dans la zone scrollable
+function centrerTab(tab) {
+  const scrollContainer = tab.closest(".tabs > div > div");
+  if (!scrollContainer) return;
+
+  const tabLeft = tab.offsetLeft;
+  const tabWidth = tab.offsetWidth;
+  const containerWidth = scrollContainer.offsetWidth;
+
+  // Calculer la position pour centrer le tab
+  const scrollPosition = tabLeft - containerWidth / 2 + tabWidth / 2;
+
+  // Scroll avec animation fluide
+  scrollContainer.scrollTo({
+    left: scrollPosition,
+    behavior: "smooth",
+  });
 }
 
 // Mettre à jour les valeurs du scénario actif
@@ -101,6 +122,12 @@ function initialiserInterface() {
 
   // Charger le scénario par défaut
   mettreAJourScenario();
+
+  // Centrer le tab actif au chargement
+  const activeTab = document.querySelector(".tab.active");
+  if (activeTab) {
+    setTimeout(() => centrerTab(activeTab), 100);
+  }
 }
 
 function calculer() {
