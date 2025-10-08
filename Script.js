@@ -132,8 +132,8 @@ function initialiserInterface() {
 
 function calculer() {
   const formatFr = new Intl.NumberFormat("fr-FR", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   });
 
   const surfaceLogement =
