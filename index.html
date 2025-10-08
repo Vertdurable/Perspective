@@ -50,6 +50,43 @@
         </div>
       </div>
 
+      <!-- Inputs éditables pour le scénario "Autre" -->
+      <div class="inputs-editables" id="inputsEditables" style="display: none">
+        <h3>Valeurs personnalisées</h3>
+        <div>
+          <label for="inputCoutTotal">Coût TTC total :</label>
+          <input
+            type="number"
+            id="inputCoutTotal"
+            min="0"
+            value="13000000"
+            oninput="mettreAJourDepuisInputs()"
+          />
+        </div>
+        <div>
+          <label for="inputAidesTotal">Aides totales :</label>
+          <input
+            type="number"
+            id="inputAidesTotal"
+            min="0"
+            value="2400000"
+            oninput="mettreAJourDepuisInputs()"
+          />
+        </div>
+        <div>
+          <label for="inputEconomieEnergieTotal"
+            >Économie d'énergie totale :</label
+          >
+          <input
+            type="number"
+            id="inputEconomieEnergieTotal"
+            min="0"
+            value="150000"
+            oninput="mettreAJourDepuisInputs()"
+          />
+        </div>
+      </div>
+
       <div class="totaux">
         <h2>Totaux</h2>
         <p>

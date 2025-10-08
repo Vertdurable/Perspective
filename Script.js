@@ -21,6 +21,7 @@ const appData = {
     },
     autre: {
       nom: "Autre",
+      editable: true,
       coutTotal: 13000000,
       aidesTotal: 2400000,
       economieEnergieTotal: 150000,
@@ -66,6 +67,21 @@ function changerScenario(scenario) {
   // Centrer le tab actif
   centrerTab(activeTab);
 
+  // Afficher ou cacher les inputs éditables selon le scénario
+  const inputsEditables = document.getElementById("inputsEditables");
+  const scenarioData = appData.scenarios[scenario];
+
+  if (scenarioData.editable) {
+    inputsEditables.style.display = "block";
+    // Initialiser les valeurs des inputs avec les valeurs du scénario
+    document.getElementById("inputCoutTotal").value = scenarioData.coutTotal;
+    document.getElementById("inputAidesTotal").value = scenarioData.aidesTotal;
+    document.getElementById("inputEconomieEnergieTotal").value =
+      scenarioData.economieEnergieTotal;
+  } else {
+    inputsEditables.style.display = "none";
+  }
+
   // Mettre à jour les valeurs et recalculer
   mettreAJourScenario();
 }
@@ -87,6 +103,30 @@ function centrerTab(tab) {
     left: scrollPosition,
     behavior: "smooth",
   });
+}
+
+// Mettre à jour depuis les inputs éditables
+function mettreAJourDepuisInputs() {
+  const scenario = appData.scenarios[scenarioActif];
+
+  // Si le scénario n'est pas éditable, ne rien faire
+  if (!scenario.editable) return;
+
+  // Récupérer les valeurs des inputs
+  const coutTotal =
+    parseFloat(document.getElementById("inputCoutTotal").value) || 0;
+  const aidesTotal =
+    parseFloat(document.getElementById("inputAidesTotal").value) || 0;
+  const economieEnergieTotal =
+    parseFloat(document.getElementById("inputEconomieEnergieTotal").value) || 0;
+
+  // Mettre à jour l'objet scénario
+  scenario.coutTotal = coutTotal;
+  scenario.aidesTotal = aidesTotal;
+  scenario.economieEnergieTotal = economieEnergieTotal;
+
+  // Mettre à jour l'affichage
+  mettreAJourScenario();
 }
 
 // Mettre à jour les valeurs du scénario actif
