@@ -6,17 +6,17 @@ const appData = {
   },
   scenarios: {
     "bouygues +": {
-      nom: "Bouygues Premium",
+      nom: "Bouygues +",
       coutTotal: 15867200,
       aidesTotal: 2851000,
-      economieEnergieTotal: 244000*0.6,
+      economieEnergieTotal: 144000,
       ameliorationValeurVerteTotal: 4,
     },
     "bouygues-standard": {
-      nom: "Bouygues Base",
+      nom: "Bouygues Standard",
       coutTotal: 15561200,
       aidesTotal: 1590000,
-      economieEnergieTotal: 244000*0;5,
+      economieEnergieTotal: 120000,
       ameliorationValeurVerteTotal: 3,
     },
     autre: {
@@ -227,5 +227,6 @@ function calculer() {
 
 // ⚡ lancer une première fois au chargement
 window.onload = initialiserInterface;
+
 
 
