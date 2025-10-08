@@ -23,7 +23,7 @@ const appData = {
       nom: "Autre",
       editable: true,
       coutTotal: 1000,
-      aidesTotal: 1000,
+      aidesTotal: 1590000,
       economieEnergieTotal: 10,
       ameliorationValeurVerteTotal: 1.5,
     },
@@ -227,6 +227,7 @@ function calculer() {
 
 // ⚡ lancer une première fois au chargement
 window.onload = initialiserInterface;
+
 
 
 
