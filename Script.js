@@ -5,15 +5,15 @@ const appData = {
     surfaceTotaleDefaut: 19100,
   },
   scenarios: {
-    "bouygue +": {
-      nom: "Bouygues Plus",
+    "bouygues +": {
+      nom: "Bouygues Premium",
       coutTotal: 15867200,
       aidesTotal: 2851000,
       economieEnergieTotal: 244000*0.6,
       ameliorationValeurVerteTotal: 4,
     },
     "bouygues-standard": {
-      nom: "Bouygues Standard",
+      nom: "Bouygues Base",
       coutTotal: 15561200,
       aidesTotal: 1590000,
       economieEnergieTotal: 244000*0;5,
@@ -227,4 +227,5 @@ function calculer() {
 
 // ⚡ lancer une première fois au chargement
 window.onload = initialiserInterface;
+
 
