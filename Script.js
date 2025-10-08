@@ -4,18 +4,37 @@ const appData = {
     surfaceLogementDefaut: 75,
     surfaceTotaleDefaut: 19100,
   },
-  totaux: {
-    coutTotal: 15867200,
-    aidesTotal: 2851000,
-    resteTotal: 13016200,
-    economieEnergieTotal: 200000,
-    ameliorationValeurVerteTotal: 2,
+  scenarios: {
+    "bouygues-plus": {
+      nom: "Bouygues +",
+      coutTotal: 15867200,
+      aidesTotal: 2851000,
+      economieEnergieTotal: 200000,
+      ameliorationValeurVerteTotal: 2,
+    },
+    "bouygues-standard": {
+      nom: "Bouygues Standard",
+      coutTotal: 14500000,
+      aidesTotal: 2600000,
+      economieEnergieTotal: 180000,
+      ameliorationValeurVerteTotal: 1.8,
+    },
+    autre: {
+      nom: "Autre",
+      coutTotal: 13000000,
+      aidesTotal: 2400000,
+      economieEnergieTotal: 150000,
+      ameliorationValeurVerteTotal: 1.5,
+    },
   },
   parametres: {
     prixAuM2: 9600,
     tauxMensualiteParMillier: 4.3,
   },
 };
+
+// Scénario actif
+let scenarioActif = "bouygues-plus";
 
 // Fonction pour parser les nombres formatés avec séparateurs de milliers
 function parseFormattedNumber(text) {
@@ -33,6 +52,45 @@ function formatNumber(number) {
   }).format(number);
 }
 
+// Changer de scénario
+function changerScenario(scenario) {
+  scenarioActif = scenario;
+
+  // Mettre à jour l'état des onglets
+  document.querySelectorAll(".tab").forEach((tab) => {
+    tab.classList.remove("active");
+  });
+  document
+    .querySelector(`[data-scenario="${scenario}"]`)
+    .classList.add("active");
+
+  // Mettre à jour les valeurs et recalculer
+  mettreAJourScenario();
+}
+
+// Mettre à jour les valeurs du scénario actif
+function mettreAJourScenario() {
+  const scenario = appData.scenarios[scenarioActif];
+  const resteTotal = scenario.coutTotal - scenario.aidesTotal;
+
+  // Mettre à jour les totaux avec formatage
+  document.getElementById("coutTotal").textContent = formatNumber(
+    scenario.coutTotal
+  );
+  document.getElementById("aidesTotal").textContent = formatNumber(
+    scenario.aidesTotal
+  );
+  document.getElementById("resteTotal").textContent = formatNumber(resteTotal);
+  document.getElementById("economieEnergieTotal").textContent = formatNumber(
+    scenario.economieEnergieTotal
+  );
+  document.getElementById("ameliorationValeurVerteTotal").textContent =
+    scenario.ameliorationValeurVerteTotal;
+
+  // Recalculer les résultats
+  calculer();
+}
+
 // Initialiser l'interface avec les données
 function initialiserInterface() {
   // Initialiser les inputs
@@ -41,24 +99,8 @@ function initialiserInterface() {
   document.getElementById("surfaceTotale").value =
     appData.inputs.surfaceTotaleDefaut;
 
-  // Initialiser les totaux avec formatage
-  document.getElementById("coutTotal").textContent = formatNumber(
-    appData.totaux.coutTotal
-  );
-  document.getElementById("aidesTotal").textContent = formatNumber(
-    appData.totaux.aidesTotal
-  );
-  document.getElementById("resteTotal").textContent = formatNumber(
-    appData.totaux.resteTotal
-  );
-  document.getElementById("economieEnergieTotal").textContent = formatNumber(
-    appData.totaux.economieEnergieTotal
-  );
-  document.getElementById("ameliorationValeurVerteTotal").textContent =
-    appData.totaux.ameliorationValeurVerteTotal;
-
-  // Lancer le premier calcul
-  calculer();
+  // Charger le scénario par défaut
+  mettreAJourScenario();
 }
 
 function calculer() {

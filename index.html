@@ -10,7 +10,6 @@
   <body oninput="calculer()">
     <div class="container">
       <h1>Estimation QP hors honoraires annexe</h1>
-
       <div class="inputs">
         <div>
           <label for="logement">Surface du logement :</label>
@@ -20,6 +19,34 @@
         <div>
           <label for="surfaceTotale">Surface totale :</label>
           <input type="number" id="surfaceTotale" min="1" value="19100" />
+        </div>
+      </div>
+      <!-- Onglets de scénarios -->
+      <div class="tabs">
+        <div>
+          <div>
+            <button
+              class="tab active"
+              data-scenario="bouygues-plus"
+              onclick="changerScenario('bouygues-plus')"
+            >
+              Bouygues +
+            </button>
+            <button
+              class="tab"
+              data-scenario="bouygues-standard"
+              onclick="changerScenario('bouygues-standard')"
+            >
+              Bouygues Standard
+            </button>
+            <button
+              class="tab"
+              data-scenario="autre"
+              onclick="changerScenario('autre')"
+            >
+              Autre
+            </button>
+          </div>
         </div>
       </div>
 
