@@ -6,7 +6,7 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 100%);
   margin: 0;
-  padding: 0;
+  padding: 0 10px;
   min-height: 100vh;
 }
 
@@ -180,18 +180,18 @@ button:hover {
 }
 
 .totaux p {
-  margin: 10px 0;
+  margin: 12px 0;
   color: #1b5e20;
   font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .totaux strong {
   color: #2e7d32;
-}
-
-.totaux span {
-  color: #388e3c;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .resultats {
@@ -202,22 +202,37 @@ button:hover {
   border-left: 4px solid #7cb342;
 }
 
-.resultats h2 {
+.resultats h2,
+.totaux h2 {
   margin-top: 0;
   color: #558b2f;
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 15px;
   font-weight: 600;
+  text-align: center;
 }
 
 .resultats p {
   margin: 12px 0;
   color: #33691e;
   font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
 }
 
-.resultats span {
-  color: #689f38;
+.resultats strong,
+.totaux strong {
+  color: #558b2f;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 17px;
+}
+
+.resultats span,
+.totaux span {
+  color: #558b2f;
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
 }
