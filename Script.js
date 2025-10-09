@@ -205,8 +205,8 @@ function calculer() {
   const cout = coutTotal * ratio;
   const aides = aidesTotal * ratio;
   const reste = resteTotal * ratio;
-  const resteEcoPtz = reste * 0.75;
-  const resteAPayer = reste * 0.25;
+  const resteAPayer = reste * 0.75;
+  const resteEcoPtz = reste * 0.25;
   const Mensualite = (resteAPayer / 1000) * tauxMensualite;
   const economieEnergie = (economieEnergieTotal * ratio) / 12;
   const effortMensuel = Mensualite - economieEnergie;
