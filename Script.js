@@ -213,8 +213,6 @@ function calculer() {
   const valeurVerte =
     (ameliorationValeurVerteTotalEnPourcent / 100) * prixAuM2 * surfaceLogement;
 
-  alert(ameliorationValeurVerteTotalEnPourcent);
-
   // Résultats
   document.getElementById("resultCout").textContent = formatFr.format(cout);
   document.getElementById("resultAides").textContent = formatFr.format(aides);
