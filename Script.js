@@ -35,7 +35,7 @@ const appData = {
 };
 
 // Scénario actif
-let scenarioActif = "bouygues-plus";
+let scenarioActif = "bouygues +";
 
 // Fonction pour parser les nombres formatés avec séparateurs de milliers
 function parseFormattedNumber(text) {
@@ -205,11 +205,15 @@ function calculer() {
   const cout = coutTotal * ratio;
   const aides = aidesTotal * ratio;
   const reste = resteTotal * ratio;
-  const Mensualite = (reste / 1000) * tauxMensualite;
+  const resteEcoPtz = reste * 0.75;
+  const resteAPayer = reste * 0.25;
+  const Mensualite = (resteAPayer / 1000) * tauxMensualite;
   const economieEnergie = (economieEnergieTotal * ratio) / 12;
   const effortMensuel = Mensualite - economieEnergie;
   const valeurVerte =
     (ameliorationValeurVerteTotalEnPourcent / 100) * prixAuM2 * surfaceLogement;
+
+  alert(ameliorationValeurVerteTotalEnPourcent);
 
   // Résultats
   document.getElementById("resultCout").textContent = formatFr.format(cout);
@@ -217,19 +221,15 @@ function calculer() {
   document.getElementById("resultReste").textContent = formatFr.format(reste);
   document.getElementById("resultMensualite").textContent =
     formatFr.format(Mensualite);
+  document.getElementById("resultResteAPayer").textContent =
+    formatFr.format(resteEcoPtz);
   document.getElementById("resultEconomieEnergie").textContent =
     formatFr.format(economieEnergie);
-  document.getElementById("effortMensuel").textContent =
-    formatFr.format(effortMensuel);
+  // document.getElementById("effortMensuel").textContent =
+  //   formatFr.format(effortMensuel);
   document.getElementById("resultValeurVerte").textContent =
     formatFr.format(valeurVerte);
 }
 
 // ⚡ lancer une première fois au chargement
 window.onload = initialiserInterface;
-
-
-
-
-
-
